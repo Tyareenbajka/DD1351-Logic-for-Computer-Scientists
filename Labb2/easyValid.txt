@@ -1,0 +1,8 @@
+% En lista av premisser (vänstra delen av sekventen.)
+[p].
+
+% Målet (högra delen av sekventen).
+p.
+
+% Beviset
+[[1, p, premise]].
