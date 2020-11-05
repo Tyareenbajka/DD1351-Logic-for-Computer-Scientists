@@ -1,6 +1,6 @@
 % ['C:/Users/tonac/Desktop/Prolog/Labb2/beviskoll2.pl'].
 % ['beviskoll2.pl'].
-% 'C:/Users/tonac/Desktop/Prolog/Labb2/tests/invalid01.txt'
+
 
 verify(InputFileName) :- see(InputFileName),
 	read(Prems), read(Goal), read(Proof),
