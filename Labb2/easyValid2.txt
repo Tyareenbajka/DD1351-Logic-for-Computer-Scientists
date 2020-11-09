@@ -7,6 +7,6 @@ p.
 % Beviset
 [
   [1, q, premise],
-  [1, t, premise],
-  [1, p, premise]
+  [2, t, premise],
+  [3, p, premise]
 ].
