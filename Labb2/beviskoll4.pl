@@ -30,12 +30,24 @@ checkProof(Prems, [H|T], CheckedList):-
 check_rule(Prems, [_, Atom, premise],_):-
 	member(Atom, Prems).
 
-%% Hantering av regler
+%% Hantering av regler %%
 
-% Kollar impel(x,y)
+% Kollar impel(X,Y)
 check_rule(_, [_, Atom, impel(X,Y)], CheckedList):-
     member([X, X2,_], CheckedList),
     member([Y, imp(X2,Atom),_], CheckedList).
+
+% Kollar andint(X,Y)
+check_rule(_, [_, and(X2,Y2), andint(X,Y)], CheckedList):-
+	member([X, X2, premise], CheckedList),
+	member([Y, Y2, premise], CheckedList).
+
+% Kollar orint1(X) och orint2(X)
+check_rule(_,[_,or(X,_), orint1(Z)], CheckedList):-
+	member([Z,X,_], CheckedList).
+
+check_rule(_,[_,or(_,Y), orint2(Z)], CheckedList):-
+	member([Z,Y,_], CheckedList).
 
 % Lägger till ny lista
 addToList(H, CheckedList, NewList):-
