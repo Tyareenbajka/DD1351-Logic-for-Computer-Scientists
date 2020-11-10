@@ -20,16 +20,19 @@ checkGoal(Goal, Proof):-
 % Steg 2: Kontrollera beviset rad för rad
 
 checkProof(_, [], _).
-checkProof(Prems, [H|T], CheckedList) :- 
+checkProof(Prems, [H|T], CheckedList):- 
     check_rule(Prems, H, CheckedList),
     addToList(H, CheckedList, NewList), 
-    checkProof(Prems, T, NewList).
+	checkProof(Prems, T, NewList).
+	
 
 %% Kollar om det är en premiss
 check_rule(Prems, [_, Atom, premise],_):-
 	member(Atom, Prems).
 
-% Kollar regel impel(x,y)
+%% Hantering av regler
+
+% Kollar impel(x,y)
 check_rule(_, [_, Atom, impel(X,Y)], CheckedList):-
     member([X, X2,_], CheckedList),
     member([Y, imp(X2,Atom),_], CheckedList).
