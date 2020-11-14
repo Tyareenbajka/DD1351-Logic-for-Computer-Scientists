@@ -1,7 +1,7 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%			Adeel Hussain & Philip Tonaczew 		    %
-% 				Labb 2 - 2020-11-17						%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Adeel Hussain & Philip Tonaczew 		    
+%Labb 2 - 2020-11-17						
+
 
 
 verify(InputFileName) :- see(InputFileName),
