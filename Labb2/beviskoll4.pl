@@ -14,17 +14,15 @@ valid_proof(Prems, Goal, Proof):-
 	checkProof(Prems, Proof, []), !,
 	write('Predikatet uppfyllt!').
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%			Kontrollera Goal		    %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Kontrollera Goal		  
 
 checkGoal(Goal, Proof):- 
 	last(Proof, LastRow),
 	nth1(2, LastRow, Goal).
 	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%			Kontrollera bevis rad för rad		    %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Kontrollera bevis rad för rad		  
 
 checkProof(_, [], _).
 checkProof(Prems, [H|T], CheckedList):- 
@@ -32,9 +30,8 @@ checkProof(Prems, [H|T], CheckedList):-
 	addToList(H, CheckedList, NewList),
 	checkProof(Prems, T, NewList).
 	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%			Kontroll av regler		    %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Kontroll av regler		    
 
 %% Kollar om det är en premiss
 check_rule(Prems, [_, Atom, premise], _):-
@@ -124,9 +121,8 @@ check_rule(_, [_, _, contel(X)], CheckedList):-
 	write('\n').
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%			Boxhantering & Regler		    %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Boxhantering & Regler		   
 
 %Kollar boxen och kallar checkProof som sedan rekursivt itererar igenom boxen
 check_rule(Prems, [[X, Atom, assumption]|T], CheckedList):-
@@ -171,9 +167,8 @@ check_rule(_, [_, Atom, orel(S1,S2,S3,S4,S5)], CheckedList):-
 	write('orel regeln!'),
 	write('\n').
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%			Listhantering		     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Listhantering		     
 
 % Lägger till ny lista
 addToList(H, CheckedList, NewList):-
