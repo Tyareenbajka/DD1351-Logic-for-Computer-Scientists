@@ -1,6 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%			Adeel Hussain & Philip Tonaczew 		    %
+% 				Labb 2 - 2020-11-17						%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Adeel Hussain & Philip Tonaczew 		    
-%Labb 2 - 2020-11-17						
+% ['C:/Users/tonac/Desktop/Prolog/Labb2/beviskoll2.pl'].
+% ['C:/Users/tonac/Documents/GitHub/DD1351/Labb2/beviskoll4.pl'].
+% ['C:/Users/adeel/OneDrive/KTH/Årskurs 2/HT-20/Logik För Dataloger/DD1351/Labb 2/beviskoll2.pl'].
+%
+% cd C:/Users/tonac/Documents/GitHub/DD1351/Labb2/
+% swipl
+% ['test.pl'].
+% test
+
+% premise 			Klart
+% assumption		Klart
+% copy(x) 			Klart
+% andint(x,y) 		Klart
+% andel1(x) 		Klart
+% andel2(x) 		Klart
+% orint1(x) 		Klart
+% orint2(x) 		Klart
+% orel(x,y,u,v,w)	Klart 
+% impint(x,y) 		Klart
+% impel(x,y)		Klart
+% negint(x,y) 		Klart
+% negel(x,y) 		Klart
+% contel(x) 		Klart
+% negnegint(x) 		Klart
+% negnegel(x) 		Klart
+% mt(x,y) 			Klart (Ej Fullständig)
+% pbc(x,y) 			Klart
+% lem 				Klart
+%
+% valid16.txt failed. The proof is valid but your program rejected it!
 
 
 
@@ -14,15 +46,17 @@ valid_proof(Prems, Goal, Proof):-
 	checkProof(Prems, Proof, []), !,
 	write('Predikatet uppfyllt!').
 
-
-%Kontrollera Goal		  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%			Kontrollera Goal		    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 checkGoal(Goal, Proof):- 
 	last(Proof, LastRow),
 	nth1(2, LastRow, Goal).
 	
-
-%Kontrollera bevis rad för rad		  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%			Kontrollera bevis rad för rad		    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 checkProof(_, [], _).
 checkProof(Prems, [H|T], CheckedList):- 
@@ -30,8 +64,9 @@ checkProof(Prems, [H|T], CheckedList):-
 	addToList(H, CheckedList, NewList),
 	checkProof(Prems, T, NewList).
 	
-
-%Kontroll av regler		    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%			Kontroll av regler		    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Kollar om det är en premiss
 check_rule(Prems, [_, Atom, premise], _):-
@@ -98,7 +133,22 @@ check_rule(_,[_,cont, negel(X,Y)], CheckedList):-
 % Kollar regel mt(x,y) (ska lägga in resternade tre scenario till)
 check_rule(_,[_, neg(Atom), mt(X,Y)], CheckedList):-
 	member([X,imp(Atom,neg(Atom2)),_], CheckedList),
+	member([Y,neg(neg(Atom2)),_], CheckedList);
+
+	member([X,imp(Atom,Atom2),_], CheckedList),
+	member([Y,neg(Atom2),_], CheckedList),
+
+	write('MT regeln!'),
+	write('\n').
+
+% Kollar regel mt(x,y) fast dubbel negation framför
+check_rule(_,[_,neg(neg(Atom)), mt(X,Y)], CheckedList):-
+	member([X,imp(neg(Atom,Atom2)),_], CheckedList),
+	member([Y,neg(Atom2),_], CheckedList);
+
+	member([X,imp(neg(Atom,neg(Atom2))),_], CheckedList),
 	member([Y,neg(neg(Atom2)),_], CheckedList),
+
 	write('MT regeln!'),
 	write('\n').
 
@@ -121,8 +171,9 @@ check_rule(_, [_, _, contel(X)], CheckedList):-
 	write('\n').
 
 
-
-%Boxhantering & Regler		   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%			Boxhantering & Regler		    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Kollar boxen och kallar checkProof som sedan rekursivt itererar igenom boxen
 check_rule(Prems, [[X, Atom, assumption]|T], CheckedList):-
@@ -167,8 +218,9 @@ check_rule(_, [_, Atom, orel(S1,S2,S3,S4,S5)], CheckedList):-
 	write('orel regeln!'),
 	write('\n').
 
-
-%Listhantering		     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%			Listhantering		     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Lägger till ny lista
 addToList(H, CheckedList, NewList):-
