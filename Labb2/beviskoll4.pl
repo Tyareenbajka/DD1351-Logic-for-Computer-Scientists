@@ -1,5 +1,5 @@
-Adeel Hussain & Philip Tonaczew 		    
-Labb 2 - 2020-11-17						
+% Adeel Hussain & Philip Tonaczew 		    
+% Labb 2 - 2020-11-17						
 
 % ['beviskoll.pl'].
 % ['run_all_tests.pl'].
