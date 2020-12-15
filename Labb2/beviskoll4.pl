@@ -1,7 +1,8 @@
 % Adeel Hussain & Philip Tonaczew 		    
 % Labb 2 - 2020-11-17						
-
-% ['beviskoll.pl'].
+% 
+% cd C:\Users\tonac\Documents\GitHub\Logik-for-dataloger\Labb2
+% ['beviskoll4.pl'].
 % ['run_all_tests.pl'].
 % run_all_tests('beviskoll.pl').
 
@@ -21,7 +22,6 @@ checkGoal(Goal, Proof):-
 	last(Proof, LastRow),
 	nth1(2, LastRow, Goal).
 	
-
 %% Kontrollera bevis rad för rad		    
 
 checkProof(_, [], _).
@@ -30,7 +30,6 @@ checkProof(Prems, [H|T], CheckedList):-
 	addToList(H, CheckedList, NewList),
 	checkProof(Prems, T, NewList).
 	
-
 %% Kollar om det är en premiss
 check_rule(Prems, [_, Atom, premise], _):-
 	member(Atom, Prems).	
@@ -105,7 +104,6 @@ check_rule(_, [_, _, contel(X)], CheckedList):-
 
 %% Boxhantering & Regler
 
-
 %Kollar boxen och kallar checkProof som sedan rekursivt itererar igenom boxen
 check_rule(Prems, [[X, Atom, assumption]|T], CheckedList):-
 	addToList([X, Atom, assumption], CheckedList, NewList),
@@ -138,7 +136,6 @@ check_rule(_, [_, Atom, orel(S1,S2,S3,S4,S5)], CheckedList):-
 	member([S3,Atom, _], BoxList1),
 	member([S4,Atom2, assumption], BoxList2),
 	member([S5,Atom, _], BoxList2).
-
 
 % Lägger till ny lista
 addToList(H, CheckedList, NewList):-
