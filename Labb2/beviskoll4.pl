@@ -1,7 +1,6 @@
 % Adeel Hussain & Philip Tonaczew 		    
 % Labb 2 - 2020-11-17						
 % 
-% cd C:\Users\tonac\Documents\GitHub\Logik-for-dataloger\Labb2
 % ['beviskoll4.pl'].
 % ['run_all_tests.pl'].
 % run_all_tests('beviskoll.pl').
