@@ -3,7 +3,7 @@
 Introduction to mathematical logic and its use within computer science, including logic programming.
 
 
-Course contents
+## Course contents
 
 A. Propositional logic
 
