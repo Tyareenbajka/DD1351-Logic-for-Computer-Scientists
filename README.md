@@ -38,3 +38,19 @@ F. Hoare logic
 - Program verification
 - Syntax and semantics: Kripke structures
 - Proof techniques: model checking
+
+
+##Intended learning outcomes
+
+After passing the course, the students should be able to:
+
+- specify general properties of mathematical-computational structures and prove these by means of natural deduction in propositional logic and predicate logic,
+- specify inductive definitions of data structures and prove these with structural induction,
+- specify and prove system properties by means of temporal logic,
+- specify and prove program properties by means of Hoare logic,
+- apply methods for automatic deduction and carry out simple proofs with model checking,
+- apply and explain basic concepts in logic programming: unification, backtracking, intersection, negation and different programming techniques such as generate-test
+
+in order to:
+
+- master the proof techniques that are needed in future courses in the education.
