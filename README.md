@@ -40,7 +40,7 @@ F. Hoare logic
 - Proof techniques: model checking
 
 
-##Intended learning outcomes
+## Intended learning outcomes
 
 After passing the course, the students should be able to:
 
