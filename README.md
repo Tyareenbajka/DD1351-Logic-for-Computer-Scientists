@@ -1,4 +1,4 @@
-# Logic for Computer Scientists
+# DD1351 Logic for Computer Scientists
 
 Introduction to mathematical logic and its use within computer science, including logic programming.
 
