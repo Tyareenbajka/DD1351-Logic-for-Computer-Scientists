@@ -2,6 +2,9 @@
 
 Introduction to mathematical logic and its use within computer science, including logic programming.
 
+Labb2: Develop and implement an algorithm that is capable of verifying the accuracy and validity of a proof written in natural deduction. 
+Labb3: Design and develop a programmatic tool that is capable of verifying the validity of a temporal logical formula φ within a specific state S in a provided model M.
+
 
 ## Course contents
 
